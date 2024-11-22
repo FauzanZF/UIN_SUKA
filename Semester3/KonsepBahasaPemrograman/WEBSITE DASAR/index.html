@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Halaman Website Sederhana</h1>
+    </header>
+
+    <img src="https://studio.mrngroup.co/storage/app/media/Prambors/Editorial%203/meme%2010-20230523181152.webp?tr=w-600">
+    <h1>gambar ini dipanggil menggunakan link</h1>
+    <section>
+        <h2>Formulir Pendaftaran</h2>
+        <form id="registrationForm" action="#" method="post">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+
+            <label for="message">Pesan:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda di sini" required></textarea>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <!-- Menampilkan Tabel -->
+    <section>
+        <h2>Daftar Produk</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Produk A</td>
+                    <td>Rp50.000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Produk B</td>
+                    <td>Rp75.000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Produk C</td>
+                    <td>Rp100.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
