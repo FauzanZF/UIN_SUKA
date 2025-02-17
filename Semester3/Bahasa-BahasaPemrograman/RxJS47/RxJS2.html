@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RxJS Input Text</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.0/rxjs.umd.min.js"></script>
+</head>
+<body>
+<h1>Reactive Input</h1>
+<input type="text" id="inputText" placeholder="Type something..." />
+<p id="outputText"></p>
+<script>
+const { fromEvent } = rxjs;
+const { map, debounceTime } = rxjs.operators;
+const input = document.getElementById("inputText");
+const output = document.getElementById("outputText");
+// Stream dari input
+fromEvent(input, "input")
+.pipe(
+debounceTime(300), // Tunggu 300ms
+map((event) => event.target.value.toUpperCase()) // Konversi ke uppercase
+)
+.subscribe((value) => {
+output.textContent = value || "Type to see changes...";
+});
+</script>
+</body>
+</html>

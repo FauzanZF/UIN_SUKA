@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RxJS Click Counter</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.0/rxjs.umd.min.js"></script>
+    </head>
+    <body>
+        <h1>Button Click Counter</h1>
+        <button id="btnClick">Click Me!</button>
+        <p>Clicks: <span id="clickCount">0</span></p>
+        <script>
+        const { fromEvent } = rxjs;
+        const button = document.getElementById("btnClick");
+        const clickCount = document.getElementById("clickCount");
+        // Stream dari klik tombol 
+        fromEvent(button, "click")
+        .pipe()
+        .subscribe(() => {
+        const currentCount = parseInt(clickCount.textContent, 10) + 1;
+        clickCount.textContent = currentCount;
+        });
+        </script>
+    </body>
+</html>

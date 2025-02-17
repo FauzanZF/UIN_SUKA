@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build OpenMP",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fopenmp",                     // Aktifkan OpenMP
+                "-Wall",                        // Tampilkan semua peringatan
+                "-Wextra",                      // Tampilkan peringatan tambahan
+                "-g",                           // Tambahkan debug symbol
+                "${file}",                      // File sumber saat ini
+                "-o", "${fileDirname}/output"   // Output file dalam folder proyek
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compiler dengan dukungan OpenMP"
+        }
+    ]
+}

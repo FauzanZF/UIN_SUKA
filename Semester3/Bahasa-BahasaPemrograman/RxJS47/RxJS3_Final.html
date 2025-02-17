@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RxJS Reactive Search</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.0/rxjs.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .result {
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    h1 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .controls {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reactive Search</h1>
+  <div class="controls">
+    <input type="text" id="searchBox" placeholder="Search name..." />
+    <button id="clearButton">Clear</button>
+    <p id="dataCount"></p>
+  </div>
+
+  <table id="results" class="result">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const { fromEvent, of } = rxjs;
+    const { debounceTime, map, filter, distinctUntilChanged, switchMap } = rxjs.operators;
+
+    const searchBox = document.getElementById("searchBox");
+    const clearButton = document.getElementById("clearButton");
+    const resultsTableBody = document.querySelector("#results tbody");
+    const dataCount = document.getElementById("dataCount");
+
+    const names = [
+      "Naufal",
+      "Abit",
+      "Kaka",
+      "Vikri",
+      "Fauzan",
+      "Fraco",
+      "Zilong",
+      "Bruno",
+      "Markocop",
+      "AsepVLuvi",
+    ];
+
+    const displayData = (data) => {
+      resultsTableBody.innerHTML = "";
+      data.forEach((name, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${index + 1}</td><td>${name}</td>`;
+        resultsTableBody.appendChild(row);
+      });
+      dataCount.textContent = `Found: ${data.length} data`;
+    };
+
+    const filterNames = (query) => {
+      return names.filter((name) => name.toLowerCase().includes(query.toLowerCase()));
+    };
+
+    fromEvent(searchBox, "input")
+      .pipe(
+        debounceTime(300),
+        map((event) => event.target.value),
+        distinctUntilChanged(),
+        switchMap((query) => {
+          if (query.length === 0) {
+            displayData(names);
+            return of([]);
+          } else {
+            const filteredNames = filterNames(query);
+            displayData(filteredNames);
+            return of(filteredNames);
+          }
+        })
+      )
+      .subscribe();
+
+    clearButton.addEventListener("click", () => {
+      searchBox.value = "";
+      displayData(names);
+    });
+
+    displayData(names);
+  </script>
+</body>
+</html>
