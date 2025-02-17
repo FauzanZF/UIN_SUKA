@@ -1,0 +1,131 @@
+.body_HLR {
+    font-family: Arial, sans-serif;
+    background-image: url('assets/background_CFAR01.jpg'); /* Path relatif ke gambar */
+    background-size: cover; /* Agar background menutupi seluruh layar */
+    background-position: center; /* Gambar berada di tengah */
+    background-repeat: no-repeat; /* Hindari pengulangan gambar */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.body-main {
+    background-image: url('assets/background_CFAR02.jpg'); /* Path relatif ke gambar */
+    background-size: cover; /* Agar background menutupi seluruh layar */
+    background-position: center; /* Gambar berada di tengah */
+    background-repeat: no-repeat; /* Hindari pengulangan gambar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparan */
+    backdrop-filter: blur(10px); /* Efek blur */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    max-width: 500px; /* Atur lebar maksimal sesuai kebutuhan */
+    margin: 20px; /* Pusatkan di tengah dengan margin atas dan bawah */
+    color: white;
+}
+
+.container-main {
+    background-color: rgba(255, 255, 255, 0.2); /* Meningkatkan transparansi */
+    backdrop-filter: blur(15px); /* Efek blur yang lebih kuat */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Bayangan yang lebih dalam */
+    padding: 40px;
+    width: 500px;
+    max-width: 800px; /* Atur lebar maksimal sesuai kebutuhan */
+    margin: 20px ; /* Pusatkan di tengah dengan margin atas dan bawah */
+    color: white;
+    text-shadow:0 0 10px rgba(0, 0, 0, 0.8), /* Cahaya putih */
+                0 0 20px rgba(0, 0, 0, 0.6), /* Cahaya kedua */
+                0 0 30px rgba(0, 0, 0, 0.4); /* Ubah warna teks menjadi hitam untuk meningkatkan keterbacaan */
+}
+
+.chart-container {
+    margin-top: 20px; /* Jarak atas untuk container diagram */
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow:0 0 10px rgba(0, 0, 0, 0.8), /* Cahaya putih */
+                0 0 20px rgba(0, 0, 0, 0.6), /* Cahaya kedua */
+                0 0 30px rgba(0, 0, 0, 0.4); /* Ubah warna teks judul menjadi hitam */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: rgb(255, 255, 255); /* Ubah warna label menjadi hitam */
+    margin: 10px 0 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6); /* Ubah transparansi latar belakang input */
+    color: rgb(0, 0, 0); /* Ubah warna teks input menjadi hitam */
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.7); /* Ubah warna placeholder menjadi lebih gelap */
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button.reset-button {
+    padding: 10px;
+    background-color: #b54d41;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.reset-button:hover {
+    background-color: #950606;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
